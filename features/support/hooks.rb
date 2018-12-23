@@ -6,8 +6,6 @@ require 'pry'
 require 'httparty'
 require_relative '../page_objects/widgets_index_page'
 
-$caps = Selenium::WebDriver::Remote::Capabilities.chrome(chromeOptions: { args: [ "--headless" ]})
-
 Before do
   @widgets_index = WidgetsIndex.new(@browser, @domain)
 end
