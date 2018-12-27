@@ -8,5 +8,5 @@ Before do
   else
     @browser = Selenium::WebDriver.for :chrome, desired_capabilities: caps
   end
-  @domain = 'https://fullstackautomationwithruby.com'
+  puts @domain = ENV["DOMAIN"] || 'https://fullstackautomationwithruby.com'
 end
