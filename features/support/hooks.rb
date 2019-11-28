@@ -1,11 +1,10 @@
-require 'selenium-webdriver'
-require 'webdrivers'
-require 'cucumber'
-require 'rspec'
-require 'pry'
-require 'httparty'
-require_relative '../page_objects/widgets_index_page'
-
 Before do
+  if ENV["BROWSER"]
+    @browser = Selenium::WebDriver.for ENV["BROWSER"].to_sym
+    puts @browser.inspect
+  else
+    @browser = Selenium::WebDriver.for :chrome
+  end
+  puts @domain = ENV["DOMAIN"] || 'https://fullstackautomationwithruby.com'
   @widgets_index = WidgetsIndex.new(@browser, @domain)
 end
